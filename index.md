@@ -1,7 +1,8 @@
 ## Welcome to GitHub Pages
 
 For now I have some pages to show:
-1) [Decision maker](https://afafil.github.io/portfolio/01DecisionMaker/) App on Javascript, using AngularJS ans Bootstrap.css 
+
+1. [Decision maker](https://afafil.github.io/portfolio/01DecisionMaker/) App on Javascript, using AngularJS ans Bootstrap.css 
 
 
 
