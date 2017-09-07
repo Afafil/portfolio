@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='DecisionsListApp'>
+<head>
+    <meta charset="UTF-8">
+    <title>My very first self project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <script src="angular.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+  <div class="entire">
+    <div class="card">
+      <h1>Decision maker</h1>
+      <p class="header">If you need to get some help with making choice and every other decision is similar with others...
+          press 'Start new' button, we will try to help you make right choice or make you know about what you really want to.</p>
+      <div class="container">
+        <div class="row">
+          <!-- left column, cat-img -->
+          <div class="col-md-4"><img src="Vzuh.jpg" width="300"></div>
+          <!-- right column -->
+          <div class="col-md-8">
+            <!--<button id="startNew">Start new</button>
+            <button id="Answer">Answer</button>-->
+
+            <!-- Crearer list -->
+              <div ng-controller='DecisionsListAddController as itemAdder'>
+                <input type="text" ng-model="itemAdder.itemName" placeholder="solution">
+                <button ng-click="itemAdder.addItem();" class="AddButton">+</button>
+              </div>
+            
+            <!-- Show list -->
+            <div ng-controller='DecisionsListShowController as showList'>
+              <ol>
+                <li ng-repeat="item in showList.items">
+                  {{ item.name }}
+                  <button ng-click="showList.removeItem($index);" class="DeleteButton">X</button>
+                </li>
+              </ol>
+              <div><button ng-click="showList.makeChoice();">Make choice</button></div>
+              <div id="content">{{ showList.answer }}</div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

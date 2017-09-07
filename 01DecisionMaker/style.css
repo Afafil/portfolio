@@ -1,0 +1,46 @@
+html {
+  background-color: #ddfbbd;
+}
+h1 {
+    text-align: center;
+	color: #4a830c;
+	font-family: Impact;
+}
+.header {
+    text-align: center;
+    color: #4a830c;
+    font-weight: bold;
+    margin: 0 50px;
+}
+.entire {
+	background-color: #ddfbbd;
+}
+.card {
+	background-color: #fff;
+	margin: 50px 50px 60px 60px;
+	padding: 10px 10px 5px 5px;
+	border: dashed green 1px;
+	border-radius: 20px;
+}
+.container {
+	padding: 40px;
+}
+.DeleteButton {
+	border: solid red 1px;
+	font-weight: bold;
+	color: red;
+	background-color: #fcb0d7;
+	display: inline-block;
+	border-radius: 10px;
+	font-size: .6em;
+}
+.AddButton {
+	border: solid green 1px;
+	font-weight: bold;
+	color: green;
+	background-color: #5cb85c;
+	border-radius: 10px;
+}
+#content {
+	margin: 20px 0;
+}
