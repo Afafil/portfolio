@@ -1,0 +1,26 @@
+[
+  {
+    "itemName": "milk",
+    "itemQuantity": "2 bottles"
+  },
+  {
+    "itemName": "pepsi",
+    "itemQuantity": "3 bottles"
+  },
+  {
+    "itemName": "soda",
+    "itemQuantity": "1 bottles"
+  },
+  {
+    "itemName": "pepto bismol",
+    "itemQuantity": "1 bottles"
+  },
+  {
+    "itemName": "water",
+    "itemQuantity": "4 bottles"
+  },
+  {
+    "itemName": "apple juce",
+    "itemQuantity": "3 boxes"
+  }
+]
