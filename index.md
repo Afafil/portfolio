@@ -3,6 +3,7 @@
 For now I have some pages to show:
 
 1. [Decision maker](https://afafil.github.io/portfolio/01DecisionMaker/) App on Javascript, using AngularJS ans Bootstrap.css 
+2. [Shopping list](https://afafil.github.io/portfolio/ShoppingList/) App on JavaScript, using AnguarJS and Bootstrap.css
 
 
 
