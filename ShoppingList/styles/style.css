@@ -48,6 +48,57 @@ button {
     z-index: 1;
 }
 
+.ListContainer {
+    position:relative;
+    margin: 120px 0;
+    /*max-width: 400px;*/
+}
+.ListBody {
+    background-image: url("../img/NotePageMM.jpg");
+    padding-bottom: 50px;
+    min-height: 400px;
+}
+.ListLeftTop {
+    width: 75px;
+    height: 115px;
+    background-image: url("../img/NotePageLT.jpg");
+    position: absolute;
+    top: -115px;
+    left: -75px;
+}
+.ListMidleTop {
+    width: 100%;
+    height: 115px;
+    background-image: url("../img/NotePageMT.jpg");
+    position: absolute;
+    top: -115px;
+    left: 0;
+}
+.ListLeftMiddle {
+    width: 75px;
+    height: 100%;
+    background-image: url("../img/NotePageLM.jpg");
+    position: absolute;
+    top: 0;
+    left: -75px;
+}
+.ListRightTop {
+    width: 67px;
+    height: 115px;
+    background-image: url("../img/NotePageRT.jpg");
+    position: absolute;
+    top: -115px;
+    right: -67px;
+}
+.ListRightMiddle {
+    width: 58px;
+    height: 100%;
+    background-image: url("../img/NotePageRM.jpg");
+    position: absolute;
+    top: 0;
+    right: -58px;
+}
+
 /* Links inside the dropdown */
 .dropdown-content a {
     color: black;

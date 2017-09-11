@@ -70,11 +70,11 @@ function ShoppingListService() {
 
     // List of shopping items
     var itemsToBuy = [
-        {name: "cookies", quantity: 5},
-        {name: "healthy snacks", quantity: 6},
-        {name: "soda", quantity: 2},
-        {name: "milk", quantity: 3},
-        {name: "donuts", quantity: 10}
+        {name: "cookies", quantity: '5 packs'},
+        {name: "healthy snacks", quantity: '6 packs'},
+        {name: "soda", quantity: '2 bottles'},
+        {name: "milk", quantity: '3 bottles'},
+        {name: "donuts", quantity: '10 units'}
     ];
 
     service.addItem = function (itemName, quantity) {
@@ -130,20 +130,43 @@ function ShoppingListService() {
 
 function loadJSON(file, callback) {
 
-  var xobj = new XMLHttpRequest();
-  xobj.overrideMimeType("application/json");
-  xobj.open('GET', file, true); // Replace 'my_data' with the path to your file
-  xobj.onreadystatechange = function () {
-  if (xobj.readyState == 4 && xobj.status == "200") {
-    // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-    callback(xobj.responseText);
-    }
-  };
-  xobj.send(null);
+    // This how to load json, using jQuery
+    // $.getJSON("demo_ajax_json.js", function(result){
+    //     $.each(result, function(i, field){
+    //         $("div").append(field + " ");
+    //     });
+    // });
+
+
+    // This how to load lson, using only JavaScript
+  // var xobj = new XMLHttpRequest();
+  // xobj.overrideMimeType("application/json");
+  // xobj.open('GET', file, true);
+  // xobj.onreadystatechange = function () {
+  // if (xobj.readyState == 4 && xobj.status == "200") {
+  //   // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+  //   callback(xobj.responseText);
+  //   }
+  // };
+  // xobj.send(null);
 }
 
 
-
+// $(document).ready(function() {
+//
+//     // here we make css for imajes. It does not work for now
+//
+//   var ourWidth = $(".ToBuyListContainer").width();
+//   var ourHeight = $(".ToBuyListContainer").height();
+//
+//   $(".ListMidleTop").css({
+//     'width': (ourWidth + "px; height: 115px; background-image: url('../img/NotePageMT.jpg'); position: absolute; top: -115px; left: 0;")
+//   });
+//   $(".ListLeftMiddle").css({
+//     'height': (ourHeight + 'px; width: 75px; background-image: url("../img/NotePageLM.jpg"); position: absolute; top: 0; left: -75px;')
+//   });
+//
+// });
 
 
 
