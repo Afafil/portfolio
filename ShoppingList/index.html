@@ -18,7 +18,7 @@
 
     <!-- To Buy List -->
     <div class="ListContainer">
-        <div class="col-md-5 ListBody" ng-controller="ToBuyController as ToBuy">
+        <div class="col-md-6 ListBody" ng-controller="ToBuyController as ToBuy">
             <div class="ListDesign ListLeftTop"></div>
             <div class="ListDesign ListMidleTop"></div>
             <div class="ListDesign ListRightTop"></div>
@@ -34,6 +34,9 @@
                <button class="btn-md  btn-secondary pull-right" ng-click="ToBuy.DelItem($index);">
                    <span class="glyphicon glyphicon-remove"></span>
                </button>
+               <button class="btn-md  btn-secondary pull-right" ng-click="ToBuy.EditItem($index);">
+                   <span class="glyphicon glyphicon-pencil"></span>
+               </button>
            </li>
          </ul>
          <div ng-if="!ToBuy.itemsToBuy.length" class="emptyMessage">Everything is bought!</div>
@@ -44,7 +47,7 @@
 
     <!-- Already Bought List -->
     <div class="ListContainer">
-        <div class="col-md-5 ListBody" ng-controller="AlreadyBoughtController as AlreadyBought">
+        <div class="col-md-4 ListBody" ng-controller="AlreadyBoughtController as AlreadyBought">
             <div class="ListDesign ListLeftTop"></div>
             <div class="ListDesign ListMidleTop"></div>
             <div class="ListDesign ListRightTop"></div>
@@ -57,7 +60,7 @@
          <div ng-if="!AlreadyBought.ItemsBought.length" class="emptyMessage">Nothing bought yet.</div>
         </div>
     </div>
-  </div>
+  </div><!-- row -->
 
   <div ng-controller="AddItemsController as itemAdder">
       <h3>Add items to shopping list</h3>
@@ -81,7 +84,24 @@
           <span class="glyphicon glyphicon-plus"></span> Add
       </button>
   </div>
+  </div><!-- container -->
+
+
+  <!-- Всплывающее окно -->
+  <div id="modal_form" ng-controller="EditItemsController as itemEditor"><!-- Сaмo oкнo -->
+      <span id="modal_close">X</span> <!-- Кнoпкa зaкрыть -->
+      <!-- Тут любoе сoдержимoе -->
+      <h3>Edit item in shopping list</h3>
+
+      <input type="text" class="EditorInput EditorInputN" ng-model="itemEditor.itemName" placeholder="item name">
+      <input type="text" class="EditorInput EditorInputQ" ng-model="itemEditor.itemQuantity" placeholder="quantity">
+      <input type="text" class="EditorInputI hidden" ng-model="itemEditor.itemIndex" placeholder="index">
+
+      <div><button  class="btn-md  btn-secondary" ng-click="itemEditor.EditItem();">
+          <span class="EditorInput glyphicon glyphicon-pencil"></span> Confirm
+      </button></div>
   </div>
+  <div id="overlay"></div><!-- Пoдлoжкa -->
 
 </body>
 </html>

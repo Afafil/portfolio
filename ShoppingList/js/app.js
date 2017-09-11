@@ -10,6 +10,7 @@ angular.module('ShoppingListCheckOff', [])
   .controller('ToBuyController', ToBuyController)
   .controller('AlreadyBoughtController', AlreadyBoughtController)
   .controller('AddItemsController', AddItemsController)
+  .controller('EditItemsController', EditItemsController)
   .service('ShoppingListService', ShoppingListService);
 
 
@@ -51,9 +52,25 @@ function ToBuyController(ShoppingListService) {
   ToBuy.DelItem = function (itemIndex) {
       ShoppingListService.DelItem(itemIndex);
   };
+
+  ToBuy.EditItem = function (itemIndex) {
+      var name = ToBuy.itemsToBuy[itemIndex].name;
+      var quantity = ToBuy.itemsToBuy[itemIndex].quantity;
+      //var currentItem =
+      ShoppingListService.EditItem(itemIndex, name, quantity);
+
+  }
 }
 
 
+EditItemsController.$inject = ['ShoppingListService'];
+function EditItemsController(ShoppingListService) {
+    var itemEditor = this;
+
+    itemEditor.EditItem = function (itemIndex) {
+        ShoppingListService.EditItemConfirm($(".EditorInputN").val(), $(".EditorInputQ").val(), $(".EditorInputI").val());
+    }
+}
 
 
 AlreadyBoughtController.$inject = ['ShoppingListService'];
@@ -67,6 +84,7 @@ function AlreadyBoughtController(ShoppingListService) {
 function ShoppingListService() {
 
    var service = this;
+   var currentItem = {itemName: "", itemQuantity: "", itemIndex: 0};
 
     // List of shopping items
     var itemsToBuy = [
@@ -76,6 +94,7 @@ function ShoppingListService() {
         {name: "milk", quantity: '3 bottles'},
         {name: "donuts", quantity: '10 units'}
     ];
+
 
     service.addItem = function (itemName, quantity) {
         var item = {
@@ -104,6 +123,35 @@ function ShoppingListService() {
    service.getItemsToBuy = function () {
        return itemsToBuy;
    };
+
+
+   service.EditItemConfirm = function (itemName, itemQuantity, itemIndex) {
+       itemsToBuy[itemIndex].name = itemName;
+       itemsToBuy[itemIndex].quantity = itemQuantity;
+       $('#modal_form')
+          .animate({opacity: 0, top: '45%'}, 200,  // плaвнo меняем прoзрaчнoсть нa 0 и oднoвременнo двигaем oкнo вверх
+              function(){ // пoсле aнимaции
+                   $(this).css('display', 'none'); // делaем ему display: none;
+                   $('#overlay').fadeOut(400); // скрывaем пoдлoжку
+              }
+          );
+   };
+
+   service.EditItem = function (itemIndex, itemName, itemQuantity) {
+       currentItem.itemName = itemName;
+       currentItem.itemQuantity = itemQuantity;
+       currentItem.itemIndex = itemIndex;
+
+       $('#overlay').fadeIn(400, // снaчaлa плaвнo пoкaзывaем темную пoдлoжку
+           function(){ // пoсле выпoлнения предъидущей aнимaции
+               $('#modal_form')
+                   .css('display', 'block') // убирaем у мoдaльнoгo oкнa display: none;
+                   .animate({opacity: 1, top: '50%'}, 200); // плaвнo прибaвляем прoзрaчнoсть oднoвременнo сo съезжaнием вниз
+               $(".EditorInputN").val(currentItem.itemName);
+               $(".EditorInputQ").val(currentItem.itemQuantity);
+               $(".EditorInputI").val(itemIndex);
+           });
+   }
 
    service.getItemsBought = function () {
        return itemsBought;
@@ -152,36 +200,48 @@ function loadJSON(file, callback) {
 }
 
 
-// $(document).ready(function() {
-//
-//     // here we make css for imajes. It does not work for now
-//
-//   var ourWidth = $(".ToBuyListContainer").width();
-//   var ourHeight = $(".ToBuyListContainer").height();
-//
-//   $(".ListMidleTop").css({
-//     'width': (ourWidth + "px; height: 115px; background-image: url('../img/NotePageMT.jpg'); position: absolute; top: -115px; left: 0;")
-//   });
-//   $(".ListLeftMiddle").css({
-//     'height': (ourHeight + 'px; width: 75px; background-image: url("../img/NotePageLM.jpg"); position: absolute; top: 0; left: -75px;')
-//   });
-//
-// });
+$(document).ready(function() {
 
+  //   // here we make css for imajes. It does not work for now
+  //
+  // var ourWidth = $(".ToBuyListContainer").width();
+  // var ourHeight = $(".ToBuyListContainer").height();
+  //
+  // $(".ListMidleTop").css({
+  //   'width': (ourWidth + "px; height: 115px; background-image: url('../img/NotePageMT.jpg'); position: absolute; top: -115px; left: 0;")
+  // });
+  // $(".ListLeftMiddle").css({
+  //   'height': (ourHeight + 'px; width: 75px; background-image: url("../img/NotePageLM.jpg"); position: absolute; top: 0; left: -75px;')
+  // });
 
-
-document.addEventListener("DOMContentLoaded",
-  function (event) {
-
-    loadJSON("data/items.json", function(response) {
-      //var actual_JSON = JSON.parse(response);
-      actual_JSON = JSON.parse(response);
-      //console.log(actual_JSON);
+    /* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
+    $('#modal_close, #overlay').click( function(){ // лoвим клик пo крестику или пoдлoжке
+        $('#modal_form')
+            .animate({opacity: 0, top: '45%'}, 200,  // плaвнo меняем прoзрaчнoсть нa 0 и oднoвременнo двигaем oкнo вверх
+                function(){ // пoсле aнимaции
+                    $(this).css('display', 'none'); // делaем ему display: none;
+                    $('#overlay').fadeOut(400); // скрывaем пoдлoжку
+                }
+            );
     });
 
 
-  }
-);
+});
+
+
+
+// document.addEventListener("DOMContentLoaded",
+//   function (event) {
+//
+//     loadJSON("data/items.json", function(response) {
+//       //var actual_JSON = JSON.parse(response);
+//       actual_JSON = JSON.parse(response);
+//       //console.log(actual_JSON);
+//     });
+//
+//
+//   }
+// );
 
 
 })();
