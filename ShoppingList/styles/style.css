@@ -1,13 +1,20 @@
+div {
+    font-family: Helvetica, sans-serif, cursive;
+}
 .emptyMessage {
     font-weight: bold;
     color: red;
     font-size: 1.2em;
+}
+li, h2 {
+    font-family: 'Permanent Marker', Helvetica, sans-serif, cursive;
 }
 li {
     margin-bottom: 7px;
     font-size: 1.2em;
 }
 button {
+    font-family: Helvetica, sans-serif, cursive;
     margin-left: 6px;
     border-radius: 10px;
     background-color: #adadad;
