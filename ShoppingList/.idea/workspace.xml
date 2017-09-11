@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0844018-07ea-4e89-87e7-934f0c6a04d6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/NotePageLM.jpg" afterPath="$PROJECT_DIR$/img/NotePageLM.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/NotePageMM.jpg" afterPath="$PROJECT_DIR$/img/NotePageMM.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/NotePageMT.jpg" afterPath="$PROJECT_DIR$/img/NotePageMT.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/NotePageRM.jpg" afterPath="$PROJECT_DIR$/img/NotePageRM.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/NotePageRT.jpg" afterPath="$PROJECT_DIR$/img/NotePageRT.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/style.css" afterPath="$PROJECT_DIR$/styles/style.css" />
-    </list>
+    <list default="true" id="c0844018-07ea-4e89-87e7-934f0c6a04d6" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -25,7 +15,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="693">
@@ -68,7 +58,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="items.json" pinned="false" current-in-tab="false">
+      <file leaf-file-name="items.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/items.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="525">
@@ -279,12 +269,12 @@
       <updated>1504872917446</updated>
       <workItem from="1504872924509" duration="14086000" />
       <workItem from="1505071210807" duration="4134000" />
-      <workItem from="1505120627717" duration="18611000" />
+      <workItem from="1505120627717" duration="18793000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36831000" />
+    <option name="totallyTimeSpent" value="37013000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1168" extended-state="6" />
@@ -476,17 +466,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/items.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/NotePageMM.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="54" column="90" lean-forward="false" selection-start-line="54" selection-start-column="90" selection-end-line="54" selection-end-column="90" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/styles/style.css">
@@ -518,10 +508,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/data/items.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="54" column="90" lean-forward="false" selection-start-line="54" selection-start-column="90" selection-end-line="54" selection-end-column="90" />
+        <state relative-caret-position="525">
+          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
           <folding />
         </state>
       </provider>
