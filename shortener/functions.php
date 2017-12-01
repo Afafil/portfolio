@@ -4,7 +4,6 @@ define("DB_HOST", "localhost");
 define("DB_DATABASE", "test");
 define("DB_USERNAME", "root");
 define("DB_PASSWORD", "oTcTl1cS");
-//define("SHORTURL_PREFIX", "http://localhost/r.php?c=");
 define("SHORTURL_PREFIX", "http://alice.ezhova.eu/shortener/r.php?c=");
 
 function queryMysql($query) {

@@ -4,11 +4,50 @@
   <meta charset="UTF-8">
   <title>URL Shortener</title>
 </head>
+<script>
+  function getShortUrl() {
+    strobj = "url="+document.getElementById("url").value;
+    noise = document.getElementById('noise').value;
+    if (noise) {
+      strobj += "&noise="+noise;
+    }
+    var http = ajaxRequest();
+    var url = "submit.php"; //your url to the server side file that will receive the data.
+    http.open("POST", url, true);
+    http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    http.onreadystatechange = function() {
+      if (this.readyState == 4)
+        if (this.status == 200)
+          if (this.responseText != null)
+            document.getElementById('resUrl').innerHTML = this.responseText
+    };
+    http.send(strobj);
+  }
+  function ajaxRequest(){
+    try {
+      var request = new XMLHttpRequest() // когда браузер не IE
+    } catch(e1) {
+      try {
+        request = new ActiveXObject("Msxml2.XMLHTTP") // когда IE 6+
+      } catch(e2) {
+        try {
+          request = new ActiveXObject("Microsoft.XMLHTTP") // когда IE 5
+        } catch(e3) {
+          request = false
+        }
+      }
+    }
+    return request
+  } // ajaxRequest
+</script>
 <body>
-<form action="submit.php" method="post">
+
   <label for="url">Введите URL (http://example.com):</label>
   <input type="text" name="url" id="url">
-  <input type="submit" value="Сгенерировать">
-</form>
+  <label for="url">желаемое сокращение (не обязательно):</label>
+  <input type="text" name="noise" id="noise">
+  <span id="info"></span>
+  <button onclick="getShortUrl();">Сгенерировать</button>
+  <div id="resUrl"></div>
 </body>
 </html>

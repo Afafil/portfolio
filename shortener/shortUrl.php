@@ -14,26 +14,26 @@ class shortUrl
     $this->timestamp = $_SERVER["REQUEST_TIME"];
   }
 
-  public function urlToShortCode($url) {
+  public function urlToShortCode($url, $noise) {
     if (empty($url)) {
-      throw new Exception("No URL was supplied.");
+      throw new Exception("Ссылка не указана.");
     }
 
     if ($this->validateUrlFormat($url) == false) {
       throw new Exception(
-        "URL does not have a valid format.");
+        "Ссылка неправильного формата.");
     }
 
     if (self::$checkUrlExists) {
       if (!$this->verifyUrlExists($url)) {
         throw new Exception(
-          "URL does not appear to exist.");
+          "Ссылка не существует.");
       }
     }
 
     $shortCode = $this->urlExistsInDb($url);
     if ($shortCode == false) {
-      $shortCode = $this->createShortCode($url);
+      $shortCode = $this->createShortCode($url, $noise);
     }
 
     return $shortCode;
@@ -69,9 +69,13 @@ class shortUrl
     return (empty($result)) ? false : $result["short_code"];
   }
 
-  protected function createShortCode($url) {
+  protected function createShortCode($url, $noise) {
     $id = $this->insertUrlInDb($url);
-    $shortCode = $this->convertIntToShortCode($id);
+    if ($noise!="") {
+      $shortCode = $noise;
+    } else {
+      $shortCode = $this->convertIntToShortCode($id);
+    }
     $this->insertShortCodeInDb($id, $shortCode);
     return $shortCode;
   }
@@ -145,18 +149,18 @@ class shortUrl
 
   public function shortCodeToUrl($code, $increment = true) {
     if (empty($code)) {
-      throw new Exception("No short code was supplied.");
+      throw new Exception("Код ссылки пустой.");
     }
 
-    if ($this->validateShortCode($code) == false) {
-      throw new Exception(
-        "Short code does not have a valid format.");
-    }
+//    if ($this->validateShortCode($code) == false) {
+//      throw new Exception(
+//        "Код ссылки неправильного формата.");
+//    }
 
     $urlRow = $this->getUrlFromDb($code);
     if (empty($urlRow)) {
       throw new Exception(
-        "Short code does not appear to exist.");
+        "Код ссылки не существует.");
     }
 
     if ($increment == true) {
